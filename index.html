@@ -1,34 +1,39 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="th">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>กำลังโหลด...</title>
   <!-- Facebook Pixel -->
   <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window,document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '703410278985466');  // Pixel ID
+    !function(f,b,e,v,n,t,s){
+      if(f.fbq)return;n=f.fbq=function(){
+        n.callMethod? n.callMethod.apply(n,arguments):n.queue.push(arguments)
+      };
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)
+    }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '703410278985466');
     fbq('track', 'PageView');
   </script>
 </head>
 <body>
   <script>
-    const ua = navigator.userAgent;
-    const timestamp = new Date().toISOString();
+    const ua = navigator.userAgent.toLowerCase();
+    const isBot = /bot|crawl|spider|preview|whatsapp|line|twitter/i.test(ua);
+    const isFacebookBrowser = ua.includes("fbav") || ua.includes("fban");
 
-    console.log("🔍 User-Agent:", ua);
-    console.log("🕒 Timestamp:", timestamp);
+    console.log("🔍 UA:", ua);
+    console.log("✅ isBot:", isBot);
+    console.log("✅ isFacebookBrowser:", isFacebookBrowser);
 
-    if (/iPhone|Android|Windows/i.test(ua)) {
-      window.location.href = "https://sweetheng.com/register?partner_ref=ttkk";
+    if (isBot || isFacebookBrowser) {
+      window.location.href = "https://www.google.com/";
     } else {
-      window.location.href = "https://sites.google.com/view/rabbit1/หน้าแรก";
+      window.location.href = "https://sweetheng.com/register?partner_ref=ttkk";
     }
   </script>
 </body>
